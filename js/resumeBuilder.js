@@ -106,45 +106,53 @@ displayWork();
 
 
 var education = {
-  "schools" : {
+  "schools" : [{
   "name" : "Hanguk University of Foreign Studies",
   "degree" : "Bachelor of Arts",
   "dates" : "1999 - 2004",
   "location" : "Seoul, South Korea",
   "major" : "Linguistics"
-},
-  "onlineClasses" : {
+}],
+  "onlineClasses" : [{
     "onlineTitle" : "Front-End Web Developer Nanodegree Program",
     "onlineSchool" : "Udacity",
     "onlineDates" : "July, 2017 - Aug, 2017",
     "onlineURL" : "https://www.udacity.com/"
-  }
+  }]
 };
 
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools.name);
-var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools.degree);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools.dates);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
+education.display = function() {
+  for(school in education.schools){
+    $("#education").append(HTMLschoolStart);
 
-$("#education").append(HTMLschoolStart);
-$(".education-entry").append(formattedSchoolName + formattedSchoolDegree);
-// $(".education-entry").append(formattedSchoolDegree);
-$(".education-entry").append(formattedSchoolDates);
-$(".education-entry").append(formattedSchoolLocation);
-$(".education-entry").append(formattedSchoolMajor);
+  var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+  var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+  var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+  var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+  var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 
-var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses.onlineTitle);
-var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses.onlineSchool);
-var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineClasses.onlineDates);
-var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineClasses.onlineURL);
+  $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+  $(".education-entry:last").append(formattedSchoolDates);
+  $(".education-entry:last").append(formattedSchoolLocation);
+  $(".education-entry:last").append(formattedSchoolMajor);
+  }
 
+  $("#education").append(HTMLonlineClasses);
+  for(online in education.onlineClasses){
+    $("#education").append(HTMLschoolStart);
 
-$(".education-entry").append(HTMLonlineClasses);
-$(".education-entry").append(formattedOnlineTitle + formattedOnlineSchool);
-$(".education-entry").append(formattedOnlineDates);
-$(".education-entry").append(formattedOnlineURL);
+  var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses[online].onlineTitle);
+  var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[online].onlineSchool);
+  var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineClasses[online].onlineDates);
+  var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineClasses[online].onlineURL);
 
+  $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+  $(".education-entry:last").append(formattedOnlineDates);
+  $(".education-entry:last").append(formattedOnlineURL);
+  }
+}
+
+education.display();
 
 var projects = {
   "projects" : [
@@ -202,7 +210,6 @@ $(document).click(function(loc) {
 
   logClicks(x, y);
 });
-
 
 
 function inName(name) {

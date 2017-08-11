@@ -120,8 +120,7 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
-      // locations.push(school.location);
-      locations.push(education.schools.location);
+      locations.push(school.location);
     });
 
     // iterates through work locations and appends each location to
@@ -129,8 +128,8 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job){
-      // locations.push(job.location);
-        locations.push(work.jobs.location);
+      locations.push(job.location);
+        // locations.push(work.jobs.location);
 
     });
 

@@ -92,6 +92,10 @@ a {
   display: block;
 }
 
+/*#topContacts {
+  display: inline-flex;
+}*/
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
