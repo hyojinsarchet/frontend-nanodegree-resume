@@ -26,9 +26,10 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #f5ae23;
   line-height: 48px;
   display: inline;
+  margin-right: 20px;
 }
 
 h2 {
@@ -42,7 +43,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #999;
   line-height: 22px;
 }
 
@@ -92,15 +93,12 @@ a {
   display: block;
 }
 
-/*#topContacts {
-  display: inline-flex;
-}*/
-
 .welcome-message {
   font-style: italic;
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  color: #f5ae23;
 }
 
 #skills-h3 {
@@ -134,6 +132,7 @@ a {
 /* TODO: Replace with image later */
 #header {
   background-color: #484848;
+  color: #fff;
 }
 
 .flex-box {
